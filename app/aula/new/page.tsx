@@ -1,33 +1,30 @@
 import { sql } from "@vercel/postgres";
 import { useSearchParams } from "next/navigation";
 
+
 export const revalidate =0
 
 
 export default function NewAula(){
-    
-    async function saveAula(){
+
+    async function saveaula(formData: FormData){
         "use server"
-        /*const name = formData.get("name") as string;
+        const nome = formData.get("nome") as string;
         const telefone = formData.get("telefone") as string;
-        console.log(name, telefone)
-
-
-        await sql`INSERT INTO aula (name, telefone) VALUES(${name}, ${telefone})`*/
+        await sql`INSERT INTO aula (nome, telefone) VALUES(${nome}, ${telefone})`
         console.log("Acessou a função")
     }
     return (
         <div>
-            <h1 className="text-black text-center text-4xl">Cadastrar Aulas</h1>
+        <h1 className="text-white text-center text-4xl">Cadastrar Cursos</h1>
             <form>
-                <input type="text" name="name" placeholder="Digite o nome do professor"/><br/><br/>
-                <input type="text" name="materia" placeholder="Digite a materia"/> <br/><br/>
+                <input type="text" name="nome" placeholder="Digite o nome do professor"/><br/><br/>
+                <input type="text" name="telefone" placeholder="Digite o telefone do professor"/> <br/><br/>
                 <br/>
-                <button formAction={saveAula} className="text-black">Salvar</button>
+                
+                <button  formAction={saveaula} className="text-lime-950">Salvar</button>
             </form>
-        </div>
-
+            </div>
 
     )
 }
-
