@@ -1,5 +1,14 @@
+import Image from 'next/image'
+
+
 export default function Home() {
   return (
-    <h1>ola mundo </h1>
+    <div>
+      <h1>ola feito DB 2</h1>
+      <a href="/aula/new/">cadastro </a><br />
+      <a href="/aula">listar</a>
+    </div>
+
+
   )
 }
