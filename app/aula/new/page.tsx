@@ -1,30 +1,44 @@
 import { sql } from "@vercel/postgres";
-import { useSearchParams } from "next/navigation";
-
+import { revalidatePath } from "next/cache";
 
 export const revalidate =0
 
-
-export default function NewAula(){
-
-    async function saveaula(formData: FormData){
+export default async function Listcurso() {
+    async function deletecurso(formData: FormData){
         "use server"
-        const nome = formData.get("nome") as string;
-        const telefone = formData.get("telefone") as string;
-        await sql`INSERT INTO aula (nome, telefone) VALUES(${nome}, ${telefone})`
-        console.log("Acessou a função")
+        const id = formData.get("id") as string;
+        await sql`DELETE from curso where id=${id}`
+        revalidatePath("/aula/curso")
     }
+    const { rows } = await sql`SELECT * from curso`;
     return (
         <div>
-        <h1 className="text-white text-center text-4xl">Listar Cursos</h1>
-            <form>
-                <input type="text" name="nome" placeholder="Digite o nome do curos"/><br/><br/>
-                <input type="text" name="telefone" placeholder="Digite o telefone do curso"/> <br/><br/>
-                <br/>
-                
-                <button  formAction={saveaula} className="text-lime-950">Salvar</button>
-            </form>
-            </div>
+            <h1 className="text-center">Lista de Curso</h1>
 
+            <table>
+                <thead>
+                    <tr> <td>Cursos</td> </tr>
+                </thead>
+                <tbody>
+                    {
+                        rows.map((curso) => {
+                            return (
+                                <tr key={curso.id}><td>{curso.marca}</td> <td>{curso.modelo}</td> 
+                                <td>
+                                    <form >
+                                     <input type="text" hidden name="id" value={curso.id}/>   
+                                    <button formAction={deletecurso}> Excluir</button>
+                                    </form>
+                                
+                                </td> 
+                                </tr>
+                            )
+                        })
+                    }
+                </tbody>
+            </table>
+
+
+        </div>
     )
 }
