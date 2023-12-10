@@ -22,7 +22,7 @@ export default function NewAula(){
             <h1 className="text-black text-center text-4xl">Cadastrar Aulas</h1>
             <form>
                 <input type="text" name="name" placeholder="Digite o nome do professor"/><br/><br/>
-                <input type="text" name="telefone" placeholder="Digite o telefone"/> <br/><br/>
+                <input type="text" name="materia" placeholder="Digite a materia"/> <br/><br/>
                 <br/>
                 <button formAction={saveAula} className="text-black">Salvar</button>
             </form>
@@ -31,3 +31,4 @@ export default function NewAula(){
 
     )
 }
+
