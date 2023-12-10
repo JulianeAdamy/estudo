@@ -16,10 +16,10 @@ export default function NewAula(){
     }
     return (
         <div>
-        <h1 className="text-white text-center text-4xl">Cadastrar Cursos</h1>
+        <h1 className="text-white text-center text-4xl">Listar Cursos</h1>
             <form>
-                <input type="text" name="nome" placeholder="Digite o nome do professor"/><br/><br/>
-                <input type="text" name="telefone" placeholder="Digite o telefone do professor"/> <br/><br/>
+                <input type="text" name="nome" placeholder="Digite o nome do curos"/><br/><br/>
+                <input type="text" name="telefone" placeholder="Digite o telefone do curso"/> <br/><br/>
                 <br/>
                 
                 <button  formAction={saveaula} className="text-lime-950">Salvar</button>
