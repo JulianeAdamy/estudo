@@ -5,7 +5,7 @@ export default async function utfpr({
 } : {
   params: { user: string }
 }): Promise<JSX.Element> {
-  const { rows } = await sql`SELECT * from estudo `;
+  const { rows } = await sql`SELECT * from utfpr `;
 
   return (
     <div>
