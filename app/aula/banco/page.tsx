@@ -1,6 +1,6 @@
 import { sql } from "@vercel/postgres";
 
-export default async function estudo({
+export default async function utfpr({
   params
 } : {
   params: { user: string }
