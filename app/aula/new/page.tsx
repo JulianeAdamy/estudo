@@ -8,7 +8,7 @@ export default async function Listcurso() {
         "use server"
         const id = formData.get("id") as string;
         await sql`DELETE from curso where id=${id}`
-        revalidatePath("/aula/curso")
+        revalidatePath("/aula/curso/new")
     }
     const { rows } = await sql`SELECT * from curso`;
     return (
@@ -23,7 +23,7 @@ export default async function Listcurso() {
                     {
                         rows.map((curso) => {
                             return (
-                                <tr key={curso.id}><td>{curso.marca}</td> <td>{curso.modelo}</td> 
+                                <tr key={curso.id}><td>{curso.name}</td> <td>{curso.telefone}</td> 
                                 <td>
                                     <form >
                                      <input type="text" hidden name="id" value={curso.id}/>   

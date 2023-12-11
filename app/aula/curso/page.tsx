@@ -17,7 +17,7 @@ export default async function Listcurso() {
 
             <table>
                 <thead>
-                    <tr> <td>nome </td> <td>telefone</td></tr>
+                    <tr> <td>name </td> <td>telefone</td></tr>
                 </thead>
                 <tbody>
                     {
