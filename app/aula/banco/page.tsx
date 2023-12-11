@@ -1,6 +1,6 @@
 import { sql } from "@vercel/postgres";
 
-export default async function utfpr({
+export default async function estudo({
   params
 } : {
   params: { user: string }
@@ -11,7 +11,7 @@ export default async function utfpr({
     <div>
       {rows.map((row) => (
         <div key={row.id}>
-          {row.id} - {row.name}
+          {row.id} - {row.name} - {row.telefone}
         </div>
       ))}
     </div>
