@@ -1,6 +1,6 @@
 import { sql } from "@vercel/postgres";
 
-export default async function Cart({
+export default async function estudo({
   params
 } : {
   params: { user: string }
