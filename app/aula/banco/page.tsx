@@ -1,6 +1,6 @@
 import { sql } from "@vercel/postgres";
 
-export default async function estudo({
+export default async function Cart({
   params
 } : {
   params: { user: string }
@@ -11,7 +11,7 @@ export default async function estudo({
     <div>
       {rows.map((row) => (
         <div key={row.id}>
-          {row.id} - {row.name} - {row.telefone}
+          {row.name} - {row.telefone}
         </div>
       ))}
     </div>

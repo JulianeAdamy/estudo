@@ -7,7 +7,7 @@ import { useSearchParams } from "next/navigation";
 export const revalidate =0
 
 
-export default function NewAula(){
+export default function appaula(){
     
     async function saveAula(){
         "use server"
@@ -16,7 +16,7 @@ export default function NewAula(){
         console.log(name, telefone)
 
 
-        await sql`INSERT INTO aula (name, telefone) VALUES(${name}, ${telefone})`*/
+        await sql`INSERT INTO estudo (name, telefone) VALUES(${name}, ${telefone})`*/
         console.log("Acessou a função")
     }
     return (
